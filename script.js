@@ -1,13 +1,18 @@
 // ==================================================
-// ÉTOFFE ÉCLAIRÉ — FULL JAVASCRIPT
-// 5 Interactive Features | GitHub Ready
+// ÉTOFFE ÉCLAIRÉ — FULL ENHANCED JAVASCRIPT
+// More Effects • All Working • GitHub Proof
 // ==================================================
 
 // ==========================================
 // 1. SCROLL REVEAL ANIMATION
-// Fades sections in as you scroll down
+// Fades sections in as you scroll
 // ==========================================
-const revealElements = document.querySelectorAll('.reveal');
+const revealSections = document.querySelectorAll('.reveal');
+
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -15,25 +20,36 @@ const revealObserver = new IntersectionObserver((entries) => {
       entry.target.classList.add('visible');
     }
   });
-}, {
-  threshold: 0.15,
-  rootMargin: '0px 0px -50px 0px'
-});
+}, observerOptions);
 
-revealElements.forEach(element => {
-  revealObserver.observe(element);
+revealSections.forEach(section => {
+  revealObserver.observe(section);
 });
 
 // ==========================================
-// 2. EXPANDING FABRIC CARDS
-// Click to open, auto-closes others
+// 2. NAVBAR SCROLL EFFECT
+// Changes style when you scroll down
+// ==========================================
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// ==========================================
+// 3. EXPANDING FABRIC CARDS
+// Click to open — auto-closes others
 // ==========================================
 function toggleCard(cardElement) {
-  const allFabricCards = document.querySelectorAll('.fabric-card');
+  const allCards = document.querySelectorAll('.fabric-card');
   
-  allFabricCards.forEach(eachCard => {
-    if (eachCard !== cardElement) {
-      eachCard.classList.remove('open');
+  allCards.forEach(card => {
+    if (card !== cardElement) {
+      card.classList.remove('open');
     }
   });
   
@@ -41,16 +57,16 @@ function toggleCard(cardElement) {
 }
 
 // ==========================================
-// 3. FAQ COLLAPSE SECTIONS
+// 4. FAQ COLLAPSE SECTIONS
 // Click question to show/hide answer
 // ==========================================
-function toggleFAQ(questionButton) {
-  const faqItem = questionButton.parentElement;
-  const allFAQItems = document.querySelectorAll('.faq-item');
+function toggleFAQ(button) {
+  const faqItem = button.parentElement;
+  const allFAQs = document.querySelectorAll('.faq-item');
   
-  allFAQItems.forEach(eachFAQ => {
-    if (eachFAQ !== faqItem) {
-      eachFAQ.classList.remove('open');
+  allFAQs.forEach(item => {
+    if (item !== faqItem) {
+      item.classList.remove('open');
     }
   });
   
@@ -58,83 +74,82 @@ function toggleFAQ(questionButton) {
 }
 
 // ==========================================
-// 4. IMAGE CAROUSEL
-// Next/Prev buttons + dots + auto-play
-// ==========================================
-let activeSlideIndex = 0;
-const numberOfSlides = 6;
-
-function changeSlide(direction) {
-  activeSlideIndex += direction;
-  
-  if (activeSlideIndex >= numberOfSlides) {
-    activeSlideIndex = 0;
-  }
-  if (activeSlideIndex < 0) {
-    activeSlideIndex = numberOfSlides - 1;
-  }
-  
-  updateAllCarouselSlides();
-}
-
-function goToSpecificSlide(slideNumber) {
-  activeSlideIndex = slideNumber;
-  updateAllCarouselSlides();
-}
-
-function updateAllCarouselSlides() {
-  const allSlides = document.querySelectorAll('.slide');
-  const allDots = document.querySelectorAll('.dot');
-  
-  allSlides.forEach((slide, index) => {
-    slide.classList.remove('active');
-    allDots[index].classList.remove('active');
-  });
-  
-  allSlides[activeSlideIndex].classList.add('active');
-  allDots[activeSlideIndex].classList.add('active');
-}
-
-// Auto-advance every 5 seconds
-setInterval(() => {
-  changeSlide(1);
-}, 5000);
-
-// ==========================================
 // 5. ACTIVE NAVIGATION HIGHLIGHT
-// Shows which section you're currently viewing
+// Shows which section you're viewing
 // ==========================================
-const allPageSections = document.querySelectorAll('section');
-const allNavigationLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
-  let currentSectionID = '';
-  const scrollPosition = window.scrollY + 150;
+  let currentId = '';
+  const scrollPos = window.scrollY + 150;
   
-  allPageSections.forEach(section => {
-    const sectionTopPosition = section.offsetTop;
-    const sectionID = section.getAttribute('id');
-    
-    if (scrollPosition >= sectionTopPosition) {
-      currentSectionID = sectionID;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (scrollPos >= sectionTop) {
+      currentId = section.getAttribute('id');
     }
   });
   
-  allNavigationLinks.forEach(link => {
+  navLinks.forEach(link => {
     link.classList.remove('active');
     const linkTarget = link.getAttribute('href').replace('#', '');
-    
-    if (linkTarget === currentSectionID) {
+    if (linkTarget === currentId) {
       link.classList.add('active');
     }
   });
 });
 
 // ==========================================
+// 6. PROGRESS STEPS ANIMATION
+// Triggers when button clicked
+// ==========================================
+function startJourney() {
+  const steps = document.querySelectorAll('.step');
+  
+  steps.forEach((step, index) => {
+    setTimeout(() => {
+      step.classList.add('active');
+    }, index * 400);
+  });
+}
+
+// ==========================================
+// 7. STAGGER ANIMATION FOR FEATURE CARDS
+// Cards appear one by one
+// ==========================================
+const featureCards = document.querySelectorAll('.feature-card');
+
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const delay = card.classList.contains('stagger-1') ? 0 :
+                    card.classList.contains('stagger-2') ? 150 :
+                    card.classList.contains('stagger-3') ? 300 : 450;
+      
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, delay);
+      
+      staggerObserver.unobserve(card);
+    }
+  });
+}, { threshold: 0.2 });
+
+featureCards.forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(30px)';
+  card.style.transition = 'all 0.6s ease';
+  staggerObserver.observe(card);
+});
+
+// ==========================================
 // CONSOLE CONFIRMATION
 // ==========================================
 console.log('✨ ======================================');
-console.log('✨ Étoffe Éclairé — Fully Loaded!');
-console.log('✨ 5 Features Active');
+console.log('✨ Étoffe Éclairé — FULLY LOADED!');
+console.log('✨ 7 JavaScript Features Active');
 console.log('✨ Thread of Knowledge, Style for Life');
 console.log('✨ ======================================');
