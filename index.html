@@ -1,1 +1,309 @@
-h
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Étoffe Éclairé | Thread of Knowledge, Style for Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Animated Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="logo">Étoffe <span>Éclairé</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#carousel" class="nav-link">Fabrics Gallery</a></li>
+        <li><a href="#fabrics" class="nav-link">Know Your Fabrics</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+      <p class="elegant-intro">Welcome to</p>
+      <h1>Étoffe <span>Éclairé</span></h1>
+      <p class="tagline">"Thread of Knowledge, Style for Life"</p>
+      <div class="gold-divider"></div>
+      <p class="subheading">Where elegance meets understanding</p>
+      <div class="hero-buttons">
+        <a href="#carousel" class="btn primary-btn">Explore Fabrics</a>
+        <a href="#about" class="btn secondary-btn">Our Story</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="reveal-section">
+    <div class="container">
+      <h2>Our Story</h2>
+      <div class="gold-line"></div>
+      <p><strong>Étoffe Éclairé</strong> means "Enlightened Fabric" in French. We chose a French name because France is world-renowned for its timeless fashion heritage and elegance. Our initials <strong>EC</strong> stand for <em>"Étoffe Éclairé"</em> — that's where <strong>"EC Tips & Tricks"</strong> comes from! We share simple, practical tips to help you understand fabrics, shop smarter, and build a wardrobe you truly love.</p>
+    </div>
+  </section>
+
+  <!-- Purpose & Audience -->
+  <section id="purpose" class="reveal-section">
+    <div class="container">
+      <h2>Why We Exist & Who We Serve</h2>
+      <div class="gold-line"></div>
+      <div class="purpose-grid">
+        <div class="purpose-card">
+          <div class="card-icon">🎯</div>
+          <h3>Our Purpose</h3>
+          <p>Too many of us waste money on clothes that shrink, feel uncomfortable, or wear out quickly — simply because we don't know what we're buying. Our purpose is simple: to make fabric knowledge accessible, elegant, and practical, so you can shop with confidence and care with ease.</p>
+        </div>
+        <div class="purpose-card">
+          <div class="card-icon">👥</div>
+          <h3>Our Audience</h3>
+          <p>Created especially for <strong>students, online shoppers, and budget-conscious individuals</strong>. Whether you're browsing Shopee or Lazada and can't touch the fabric, or you're tired of guessing care instructions — this knowledge is made for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎠 IMAGE CAROUSEL SECTION -->
+  <section id="carousel" class="reveal-section">
+    <div class="container">
+      <h2>The Fabric Gallery</h2>
+      <div class="gold-line"></div>
+      <p class="section-note">Discover the beauty of each fabric</p>
+
+      <div class="carousel-wrapper">
+        <a class="carousel-prev" onclick="plusSlides(-1)">&#10094;</a>
+        <div class="carousel-container">
+          
+          <!-- Slide 1: Cotton -->
+          <div class="carousel-slide active">
+            <img src="https://images.unsplash.com/photo-1604210668670-f8a0c35a6c78?w=800&h=500&fit=crop" alt="Soft white cotton fabric">
+            <div class="slide-caption">
+              <h3>☁️ Cotton</h3>
+              <p>Soft • Breathable • Timeless Comfort</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Silk -->
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1559283043-41765278b0a3?w=800&h=500&fit=crop" alt="Luxurious silky fabric with sheen">
+            <div class="slide-caption">
+              <h3>👑 Silk</h3>
+              <p>Luxurious • Smooth • Naturally Elegant</p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Linen -->
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1596462508450-9c4b460b17b3?w=800&h=500&fit=crop" alt="Natural linen fabric texture">
+            <div class="slide-caption">
+              <h3>🌿 Linen</h3>
+              <p>Cool • Crisp • Eco-Friendly</p>
+            </div>
+          </div>
+
+          <!-- Slide 4: Wool -->
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1580130379640-6ff7962e6468?w=800&h=500&fit=crop" alt="Cozy wool texture">
+            <div class="slide-caption">
+              <h3>🐑 Wool</h3>
+              <p>Warm • Durable • Naturally Insulating</p>
+            </div>
+          </div>
+
+          <!-- Slide 5: Polyester -->
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop" alt="Smooth woven fabric texture">
+            <div class="slide-caption">
+              <h3>⚡ Polyester</h3>
+              <p>Strong • Wrinkle-Resistant • Travel-Friendly</p>
+            </div>
+          </div>
+
+          <!-- Slide 6: Rayon -->
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=500&fit=crop" alt="Soft flowing fabric texture">
+            <div class="slide-caption">
+              <h3>🌸 Rayon</h3>
+              <p>Silky • Lightweight • Beautiful Drape</p>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <!-- Carousel Dots -->
+      <div class="carousel-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fabrics Section — Expanding Cards -->
+  <section id="fabrics" class="reveal-section">
+    <div class="container">
+      <h2>Get to Know Your Fabrics</h2>
+      <div class="gold-line"></div>
+      <p class="section-note">Click each card to discover more</p>
+      
+      <div class="fabrics-grid">
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">☁️</div>
+            <h3>Cotton</h3>
+            <span class="tag">Natural Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>What it is:</strong> One of nature's most beloved fibers, grown from the cotton plant. Soft, pure, and gentle.</p>
+            <p><strong>Best for:</strong> Everyday wear, t-shirts, underwear, and bedding. Kindest to sensitive skin.</p>
+            <p><strong>Care:</strong> Machine wash warm or cold. It loves a gentle cycle — may shrink on high heat!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">👑</div>
+            <h3>Silk</h3>
+            <span class="tag">Luxury Natural</span>
+          </div>
+          <div class="card-details">
+            <p><strong>What it is:</strong> A precious protein fiber spun by silkworms. Nature's most elegant gift.</p>
+            <p><strong>Best for:</strong> Special occasions, blouses, scarves, and delicate garments. Feels incredible against skin.</p>
+            <p><strong>Care:</strong> Hand wash gently in cool water with mild soap, or dry clean. Never wring — gently squeeze instead!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">⚡</div>
+            <h3>Polyester</h3>
+            <span class="tag">Synthetic Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>What it is:</strong> A durable man-made fiber designed to last. Resilient and always ready.</p>
+            <p><strong>Best for:</strong> Travel, activewear, and pieces you want to stay neat all day. Great value for money!</p>
+            <p><strong>Care:</strong> Machine wash warm. Dries quickly — perfect for busy lives. Low maintenance beauty.</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">🌿</div>
+            <h3>Linen</h3>
+            <span class="tag">Natural Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>What it is:</strong> Made from the flax plant — one of humanity's oldest and most sustainable textiles.</p>
+            <p><strong>Best for:</strong> Summer elegance, dresses, and shirts. It actually keeps you cooler as the temperature rises.</p>
+            <p><strong>Care:</strong> Machine wash cold. Don't fear the wrinkles — they're part of its relaxed, natural beauty!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">🐑</div>
+            <h3>Wool</h3>
+            <span class="tag">Natural Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>What it is:</strong> The natural fleece of sheep and other animals. Warmth that breathes.</p>
+            <p><strong>Best for:</strong> Sweaters, coats, and cold-weather essentials. Surprisingly — it stays warm even when damp!</p>
+            <p><strong>Care:</strong> Hand wash cold with wool detergent, or dry clean. Lay flat to dry — gravity is not your friend here!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">🌸</div>
+            <h3>Rayon</h3>
+            <span class="tag">Semi-Synthetic</span>
+          </div>
+          <div class="card-details">
+            <p><strong>What it is:</strong> Crafted from wood pulp — natural materials transformed into silky, flowing fabric.</p>
+            <p><strong>Best for:</strong> Dresses, blouses, and feminine silhouettes. Beautiful drape at a gentle price point.</p>
+            <p><strong>Care:</strong> Hand wash cold separately. It's delicate — hot water or rough handling may cause shrinking!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="reveal-section">
+    <div class="container">
+      <h2>Questions & Answers</h2>
+      <div class="gold-line"></div>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            Why should I care about fabric knowledge?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Understanding fabrics saves you money, time, and frustration. When you know what you're buying, you choose pieces that feel right, last longer, and stay beautiful wash after wash. No more wasting money on items that shrink, pill, or simply don't suit your needs!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How can I tell fabric quality when shopping online?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Always read the product description carefully — look for phrases like "100% cotton" or "polyester blend." Reputable sellers list materials clearly. If it doesn't specify — ask! It's your right to know what you're paying for. Compare prices with the fabric content — quality usually speaks for itself.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            What's truly worth investing in?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Natural fabrics like high-quality cotton, linen, and wool cost more upfront but last years — sometimes decades. Cheaper blends cost less now but wear out quickly. Think of it this way: buying better means buying less often. That's true elegance — and true savings too.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h3>Étoffe <span>Éclairé</span></h3>
+      <p class="tagline">"Thread of Knowledge, Style for Life"</p>
+      <p class="ec-note">EC Tips & Tricks — Simple. Elegant. Practical.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">© 2026 · Educational Content · Made with ♥ and elegance</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
