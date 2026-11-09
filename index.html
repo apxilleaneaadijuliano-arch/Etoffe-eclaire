@@ -3,167 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fabric Texture Carousel</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f4f4f5;
-      font-family: system-ui, -apple-system, sans-serif;
-    }
-
-    .carousel-container {
-      position: relative;
-      width: 90%;
-      max-width: 600px;
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      background-color: #fff;
-    }
-
-    .carousel-track {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.4s ease-in-out;
-    }
-
-    .carousel-slide {
-      min-width: 100%;
-      height: 100%;
-    }
-
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.8);
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .nav-button:hover {
-      background-color: #ffffff;
-      transform: translateY(-50%) scale(1.05);
-    }
-
-    .prev-btn { left: 12px; }
-    .next-btn { right: 12px; }
-
-    .dots-container {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .dot.active {
-      background-color: #ffffff;
-      transform: scale(1.2);
-    }
-  </style>
+  <title>Étoffe Éclairé | Thread of Knowledge, Style for Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <div class="carousel-container">
-    <div class="carousel-track" id="track">
-      <div class="carousel-slide">
-        <img src="images/fabric-1.jpg" alt="Draped Cream Fabric">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/fabric-2.jpg" alt="Silk Satin Fabric">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/fabric-3.jpg" alt="Textured Knit Fabric">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/fabric-4.jpg" alt="Linen Weave Fabric">
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="logo">Étoffe <span>Éclairé</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#fabrics" class="nav-link">Fabrics</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <span class="hero-subtitle">Haute Couture Knowledge</span>
+      <h1>Thread of Knowledge<br><span>Style for Life</span></h1>
+      <p class="subheading">Know what you wear. Wear what you love.</p>
+      <a href="#about" class="btn">Explore Collection</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="reveal-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="gold-line"></div>
+      <p class="lead-text"><strong>Étoffe Éclairé</strong> means <em>"Enlightened Fabric"</em> in French.</p>
+      <p>We chose a French identity because France is world-famous for its rich fashion history and timeless elegance. Our initials <strong>EC</strong> came from Étoffe Éclairé — so you'll often hear us say 'EC Tips & Tricks'! Simple, practical advice to help you understand fabrics and build a wardrobe you truly love.</p>
+    </div>
+  </section>
+
+  <!-- Purpose & Audience Section -->
+  <section id="purpose" class="reveal-section">
+    <div class="container">
+      <h2>Our Purpose & Audience</h2>
+      <div class="gold-line"></div>
+      <div class="purpose-grid">
+        <div class="purpose-card">
+          <h3>Our Purpose</h3>
+          <p>We want to bridge the gap between what you see and what you actually wear. Too many people waste money on clothes that don't fit, feel uncomfortable, or fall apart too quickly simply because they don't understand fabric labels. Our goal is to empower you with the knowledge to shop smarter, care better, and build a wardrobe that truly lasts.</p>
+        </div>
+        <div class="purpose-card">
+          <h3>Who We're For</h3>
+          <p>This content is made especially for <strong>students, online shoppers, and budget-conscious people</strong> who want to make better fashion choices without spending a fortune. Whether you're browsing online and can't touch the fabric, or you're tired of clothes shrinking in the wash — this guide is for you.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <button class="nav-button prev-btn" id="prevBtn" aria-label="Previous Slide">&#10094;</button>
-    <button class="nav-button next-btn" id="nextBtn" aria-label="Next Slide">&#10095;</button>
+  <!-- Fabrics Showcase & Interactive Carousel -->
+  <section id="fabrics" class="reveal-section">
+    <div class="container">
+      <h2>Fabrics to Know & Love</h2>
+      <div class="gold-line"></div>
+      <p class="note">Explore texture profiles & care guides below</p>
 
-    <div class="dots-container" id="dotsContainer"></div>
-  </div>
+      <!-- Elegant Image Carousel -->
+      <div class="carousel-wrapper">
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1200&q=80" alt="Draped Silk Fabric">
+              <div class="slide-caption">Luminous Silk Satin</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1200&q=80" alt="Soft Beige Cotton">
+              <div class="slide-caption">Organic Soft Cotton</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1200&q=80" alt="White Linen Texture">
+              <div class="slide-caption">Breathable Natural Linen</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1200&q=80" alt="Woven Knit Fabric">
+              <div class="slide-caption">Fine Woven Knit</div>
+            </div>
+          </div>
 
-  <script>
-    const track = document.getElementById('track');
-    const slides = Array.from(track.children);
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const dotsContainer = document.getElementById('dotsContainer');
+          <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous Slide">&#10094;</button>
+          <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next Slide">&#10095;</button>
 
-    let currentIndex = 0;
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
 
-    // Create dot indicators dynamically
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => moveToSlide(index));
-      dotsContainer.appendChild(dot);
-    });
+      <!-- Fabric Information Cards -->
+      <div class="fabrics-grid">
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">☁️</div>
+            <h3>Cotton</h3>
+            <span class="tag">Natural Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>Best for:</strong> Everyday clothes, t-shirts, bedding</p>
+            <p><strong>Pros:</strong> Soft, breathable, gentle on skin</p>
+            <p><strong>Care:</strong> Machine washable — may shrink in high heat!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
 
-    const dots = Array.from(dotsContainer.children);
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">👑</div>
+            <h3>Silk</h3>
+            <span class="tag">Luxury Natural</span>
+          </div>
+          <div class="card-details">
+            <p><strong>Best for:</strong> Formal wear, blouses, scarves</p>
+            <p><strong>Pros:</strong> Smooth, shiny, feels amazing</p>
+            <p><strong>Care:</strong> Hand wash cool or dry clean — be gentle!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
 
-    function updateDots(index) {
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">⚡</div>
+            <h3>Polyester</h3>
+            <span class="tag">Synthetic Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>Best for:</strong> Travel, activewear, affordable fashion</p>
+            <p><strong>Pros:</strong> Durable, wrinkle-resistant, dries fast</p>
+            <p><strong>Care:</strong> Easy to wash and care for</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
 
-    function moveToSlide(index) {
-      if (index < 0) {
-        currentIndex = slides.length - 1;
-      } else if (index >= slides.length) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateDots(currentIndex);
-    }
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">🌿</div>
+            <h3>Linen</h3>
+            <span class="tag">Natural Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>Best for:</strong> Summer clothes, shirts, dresses</p>
+            <p><strong>Pros:</strong> Very breathable, gets better with time</p>
+            <p><strong>Care:</strong> Machine wash — embrace the wrinkles!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
 
-    prevBtn.addEventListener('click', () => moveToSlide(currentIndex - 1));
-    nextBtn.addEventListener('click', () => moveToSlide(currentIndex + 1));
-  </script>
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">🐑</div>
+            <h3>Wool</h3>
+            <span class="tag">Natural Fiber</span>
+          </div>
+          <div class="card-details">
+            <p><strong>Best for:</strong> Sweaters, coats, cold weather</p>
+            <p><strong>Pros:</strong> Warm even when damp, naturally durable</p>
+            <p><strong>Care:</strong> Hand wash cold or dry clean</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
 
+        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+          <div class="card-header">
+            <div class="emoji">🌸</div>
+            <h3>Rayon</h3>
+            <span class="tag">Semi-Synthetic</span>
+          </div>
+          <div class="card-details">
+            <p><strong>Best for:</strong> Dresses, blouses, flowy styles</p>
+            <p><strong>Pros:</strong> Silky feel at an affordable price</p>
+            <p><strong>Care:</strong> Hand wash cold — it can shrink easily!</p>
+          </div>
+          <div class="card-icon">+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="reveal-section">
+    <div class="container">
+      <h2>Common Questions</h2>
+      <div class="gold-line"></div>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            Why do I need to know about fabrics?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Knowing your fabrics saves you money, time, and frustration. When you understand what you're buying, you pick clothes that feel right, last longer, and stay beautiful wash after wash. No more wasting money on things that shrink, pill, or feel uncomfortable!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How do I know fabric quality online?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Always read the description — look for words like "100% cotton" or "polyester blend." If it doesn't say what it's made of, message the seller! Good sellers will be happy to tell you what you're buying.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            What's the most budget-smart fabric?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Good quality cotton and linen cost a bit more upfront but last years. Cheap polyester blends cost less now but wear out faster. Sometimes spending a little more actually saves money in the long run!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Étoffe <span>Éclairé</span></h3>
+    <p class="tagline">"Thread of Knowledge, Style for Life"</p>
+    <p class="footer-note">Educational content • Fashion awareness • Smart shopping</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
