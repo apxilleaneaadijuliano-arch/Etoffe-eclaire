@@ -7,246 +7,596 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  
+  <style>
+    :root {
+      --bg-primary: #FDFBF7;
+      --bg-secondary: #FFFFFF;
+      --text-dark: #1C1917;
+      --text-muted: #666059;
+      --gold-accent: #C5A059;
+      --gold-hover: #A37F38;
+      --border-light: #E8E2D9;
+      --shadow-soft: 0 12px 32px rgba(28, 25, 23, 0.08);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="#home" class="logo">Étoffe <span>Éclairé</span></a>
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#journey" class="nav-link">Steps</a></li>
-        <li><a href="#fabrics" class="nav-link">Fabrics</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-      </ul>
-    </div>
-  </nav>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <span class="hero-subtitle">Haute Couture Knowledge</span>
-      <h1>Thread of Knowledge<br><span>Style for Life</span></h1>
-      <p class="subheading">Know what you wear. Wear what you love.</p>
-      <a href="#journey" class="btn">Start Learning</a>
-    </div>
-  </section>
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <!-- About Section -->
-  <section id="about" class="reveal-section">
-    <div class="container">
-      <h2>About Us</h2>
-      <div class="gold-line"></div>
-      <p class="lead-text"><strong>Étoffe Éclairé</strong> means <em>"Enlightened Fabric"</em> in French.</p>
-      <p>We chose a French identity because France is world-famous for its rich fashion history and timeless elegance. Our initials <strong>EC</strong> came from Étoffe Éclairé — so you'll often hear us say 'EC Tips & Tricks'! Simple, practical advice to help you understand fabrics and build a wardrobe you truly love.</p>
-    </div>
-  </section>
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
 
-  <!-- Progress Steps Section -->
-  <section id="journey" class="reveal-section">
-    <div class="container">
-      <h2>Your Wardrobe Journey</h2>
-      <div class="gold-line"></div>
-      <p class="note">Click Next to see how to master your fabric choices</p>
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-      <div class="progress-wrapper">
-        <div class="progress-container">
-          <div class="progress-bar-bg"></div>
-          <div class="progress-bar-fill" id="progressFill"></div>
-          <div class="progress-step active" data-step="1">1</div>
-          <div class="progress-step" data-step="2">2</div>
-          <div class="progress-step" data-step="3">3</div>
-          <div class="progress-step" data-step="4">4</div>
-        </div>
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
 
-        <div class="step-card" id="stepContent">
-          <h3 id="stepTitle">Step 1: Read the Care Label</h3>
-          <p id="stepDescription">Check fabric percentages before buying. Look out for natural vs. synthetic fibers to know how the garment will feel and stretch.</p>
-        </div>
+    h2 {
+      font-size: 2.4rem;
+      text-align: center;
+      color: var(--text-dark);
+    }
 
-        <div class="step-buttons">
-          <button class="step-btn" id="prevStepBtn" disabled>Previous</button>
-          <button class="step-btn primary" id="nextStepBtn">Next Step</button>
-        </div>
-      </div>
-    </div>
-  </section>
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background-color: var(--gold-accent);
+      margin: 16px auto 32px;
+    }
 
-  <!-- Fabrics Section & Fixed Carousel -->
-  <section id="fabrics" class="reveal-section">
-    <div class="container">
-      <h2>Fabrics to Know & Love</h2>
-      <div class="gold-line"></div>
-      <p class="note">Explore texture profiles & care guides below</p>
+    .lead-text {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
 
-      <!-- Carousel -->
-      <div class="carousel-wrapper">
-        <div class="carousel-container">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide">
-              <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1200&q=80" alt="Draped Silk Fabric">
-              <div class="slide-caption">Luminous Silk Satin</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1200&q=80" alt="Soft Beige Cotton">
-              <div class="slide-caption">Organic Soft Cotton</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1200&q=80" alt="White Linen Texture">
-              <div class="slide-caption">Breathable Natural Linen</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1200&q=80" alt="Woven Knit Fabric">
-              <div class="slide-caption">Fine Woven Knit</div>
-            </div>
-          </div>
+    .note {
+      text-align: center;
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
 
-          <button class="carousel-btn prev-btn" id="prevBtn" type="button" aria-label="Previous Slide">&#10094;</button>
-          <button class="carousel-btn next-btn" id="nextBtn" type="button" aria-label="Next Slide">&#10095;</button>
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 24px 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background-color: transparent;
+    }
 
-          <div class="carousel-dots" id="carouselDots"></div>
-        </div>
-      </div>
+    .navbar.scrolled {
+      background-color: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
 
-      <!-- Expanding Cards Grid -->
-      <div class="fabrics-grid">
-        <div class="fabric-card expandable-card">
-          <div class="card-header">
-            <div class="emoji">☁️</div>
-            <h3>Cotton</h3>
-            <span class="tag">Natural Fiber</span>
-          </div>
-          <div class="card-details">
-            <p><strong>Best for:</strong> Everyday clothes, t-shirts, bedding</p>
-            <p><strong>Pros:</strong> Soft, breathable, gentle on skin</p>
-            <p><strong>Care:</strong> Machine washable — may shrink in high heat!</p>
-          </div>
-          <div class="card-icon">+</div>
-        </div>
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        <div class="fabric-card expandable-card">
-          <div class="card-header">
-            <div class="emoji">👑</div>
-            <h3>Silk</h3>
-            <span class="tag">Luxury Natural</span>
-          </div>
-          <div class="card-details">
-            <p><strong>Best for:</strong> Formal wear, blouses, scarves</p>
-            <p><strong>Pros:</strong> Smooth, shiny, feels amazing</p>
-            <p><strong>Care:</strong> Hand wash cool or dry clean — be gentle!</p>
-          </div>
-          <div class="card-icon">+</div>
-        </div>
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-        <div class="fabric-card expandable-card">
-          <div class="card-header">
-            <div class="emoji">⚡</div>
-            <h3>Polyester</h3>
-            <span class="tag">Synthetic Fiber</span>
-          </div>
-          <div class="card-details">
-            <p><strong>Best for:</strong> Travel, activewear, affordable fashion</p>
-            <p><strong>Pros:</strong> Durable, wrinkle-resistant, dries fast</p>
-            <p><strong>Care:</strong> Easy to wash and care for</p>
-          </div>
-          <div class="card-icon">+</div>
-        </div>
+    .logo span {
+      color: var(--gold-accent);
+      font-style: italic;
+      font-weight: 400;
+    }
 
-        <div class="fabric-card expandable-card">
-          <div class="card-header">
-            <div class="emoji">🌿</div>
-            <h3>Linen</h3>
-            <span class="tag">Natural Fiber</span>
-          </div>
-          <div class="card-details">
-            <p><strong>Best for:</strong> Summer clothes, shirts, dresses</p>
-            <p><strong>Pros:</strong> Very breathable, gets better with time</p>
-            <p><strong>Care:</strong> Machine wash — embrace the wrinkles!</p>
-          </div>
-          <div class="card-icon">+</div>
-        </div>
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
 
-        <div class="fabric-card expandable-card">
-          <div class="card-header">
-            <div class="emoji">🐑</div>
-            <h3>Wool</h3>
-            <span class="tag">Natural Fiber</span>
-          </div>
-          <div class="card-details">
-            <p><strong>Best for:</strong> Sweaters, coats, cold weather</p>
-            <p><strong>Pros:</strong> Warm even when damp, naturally durable</p>
-            <p><strong>Care:</strong> Hand wash cold or dry clean</p>
-          </div>
-          <div class="card-icon">+</div>
-        </div>
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
 
-        <div class="fabric-card expandable-card">
-          <div class="card-header">
-            <div class="emoji">🌸</div>
-            <h3>Rayon</h3>
-            <span class="tag">Semi-Synthetic</span>
-          </div>
-          <div class="card-details">
-            <p><strong>Best for:</strong> Dresses, blouses, flowy styles</p>
-            <p><strong>Pros:</strong> Silky feel at an affordable price</p>
-            <p><strong>Care:</strong> Hand wash cold — it can shrink easily!</p>
-          </div>
-          <div class="card-icon">+</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold-accent);
+    }
 
-  <!-- FAQ Section -->
-  <section id="faq" class="reveal-section">
-    <div class="container">
-      <h2>Common Questions</h2>
-      <div class="gold-line"></div>
-      
-      <div class="faq-container">
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            Why do I need to know about fabrics?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Knowing your fabrics saves you money, time, and frustration. When you understand what you're buying, you pick clothes that feel right, last longer, and stay beautiful wash after wash. No more wasting money on things that shrink, pill, or feel uncomfortable!</p>
-          </div>
-        </div>
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--gold-accent);
+      transition: width 0.3s ease;
+    }
 
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            How do I know fabric quality online?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Always read the description — look for words like "100% cotton" or "polyester blend." If it doesn't say what it's made of, message the seller! Good sellers will be happy to tell you what you're buying.</p>
-          </div>
-        </div>
+    .nav-link.active::after, .nav-link:hover::after {
+      width: 100%;
+    }
 
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            What's the most budget-smart fabric?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Good quality cotton and linen cost a bit more upfront but last years. Cheap polyester blends cost less now but wear out faster. Sometimes spending a little more actually saves money in the long run!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 100px;
+      background: linear-gradient(180deg, rgba(232, 226, 217, 0.3) 0%, rgba(253, 251, 247, 1) 100%);
+    }
 
-  <!-- Footer -->
-  <footer>
-    <h3>Étoffe <span>Éclairé</span></h3>
-    <p class="tagline">"Thread of Knowledge, Style for Life"</p>
-    <p class="footer-note">Educational content • Fashion awareness • Smart shopping</p>
-  </footer>
+    .hero-subtitle {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold-accent);
+      display: block;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
 
-  <script src="script.js"></script>
-</body>
-</html>
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      font-style: italic;
+      color: var(--gold-accent);
+      font-weight: 400;
+    }
+
+    .subheading {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background-color: var(--text-dark);
+      color: var(--bg-primary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--gold-accent);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .progress-wrapper {
+      max-width: 700px;
+      margin: 40px auto 0;
+      background: var(--bg-secondary);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .progress-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .progress-bar-bg {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 3px;
+      width: 100%;
+      background-color: var(--border-light);
+      z-index: 1;
+    }
+
+    .progress-bar-fill {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: 3px;
+      width: 0%;
+      background-color: var(--gold-accent);
+      z-index: 1;
+      transition: width 0.4s ease;
+    }
+
+    .progress-step {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .progress-step.active {
+      border-color: var(--gold-accent);
+      background-color: var(--gold-accent);
+      color: #FFFFFF;
+    }
+
+    .step-card {
+      min-height: 110px;
+      transition: opacity 0.2s ease;
+    }
+
+    .step-card h3 {
+      font-size: 1.3rem;
+      color: var(--gold-accent);
+      margin-bottom: 8px;
+    }
+
+    .step-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+
+    .step-btn {
+      padding: 10px 24px;
+      border: 1px solid var(--border-light);
+      background: transparent;
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .step-btn.primary {
+      background: var(--text-dark);
+      color: #FFFFFF;
+      border-color: var(--text-dark);
+    }
+
+    .step-btn:hover:not(:disabled) {
+      background: var(--gold-accent);
+      border-color: var(--gold-accent);
+      color: #FFFFFF;
+    }
+
+    .step-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .carousel-wrapper {
+      margin-bottom: 60px;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 480px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+      background-color: var(--text-dark);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(28, 25, 23, 0.75);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 5;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(253, 251, 247, 0.85);
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: #FFFFFF;
+      color: var(--gold-accent);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .prev-btn { left: 20px; }
+    .next-btn { right: 20px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--gold-accent);
+      transform: scale(1.3);
+    }
+
+    .fabrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .fabric-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 24px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .fabric-card:hover {
+      border-color: var(--gold-accent);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-header .emoji {
+      font-size: 1.5rem;
+    }
+
+    .card-header h3 {
+      font-size: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      color: var(--text-muted);
+    }
+
+    .card-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .fabric-card.expanded .card-details {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .card-icon {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 1.2rem;
+      color: var(--gold-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .fabric-card.expanded .card-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 0;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+    }
+
+    .faq-toggle {
+      color: var(--gold-accent);
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.expanded .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .faq-item.expanded .faq-answer {
+      max-height: 150px;
+      padding-top: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 0;
+      background-color: var(--text-dark);
+      color: var(--bg-primary);
+      margin-top: 60px;
+    }
+
+    footer h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    footer h3 span {
+      color: var(--gold-accent);
+      font-style: italic;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: var(--gold-accent);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
