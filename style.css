@@ -1,1 +1,23 @@
-i
+/* ═══════════════════════════════════════
+   ÉTOFFE ÉCLAIRÉ — ELEGANT GOLD & CREAM
+═══════════════════════════════════════ */
+
+:root {
+  --ivory: #FFFBF5;
+  --cream: #F6F0E0;
+  --cream-light: #FAF6ED;
+  --cream-deep: #EDE4CC;
+  --gold-pale: #E8D08C;
+  --gold-soft: #DCC680;
+  --gold: #D4AF37;
+  --gold-rich: #B8922F;
+  --gold-deep: #8F6F1A;
+  --charcoal: #2C2C2C;
+  --stone: #6B6558;
+  --stone-light: #9A9486;
+  --soft-green: #EDF4E9;
+  --soft-rose: #F6EDEB;
+  --accent-green: #5F8C45;
+  --accent-rose: #A05949;
+
+  --gold-gradient: linear-gradient
