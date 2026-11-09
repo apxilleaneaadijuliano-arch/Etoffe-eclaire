@@ -1,23 +1,17 @@
-// ==========================================
-// ÉTOFFE ÉCLAIRÉ — INTERACTIVE SCRIPTS
-// ==========================================
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // === 1. ANIMATED NAVIGATION & NAVBAR SCROLL ===
+  // === 1. NAVIGATION HIGHLIGHT & NAVBAR SCROLL ===
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section');
 
   window.addEventListener('scroll', () => {
-    // Dynamic Navbar Background
     if (window.scrollY > 30) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
-    // Dynamic Link Indicator Highlight
     let currentSection = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
@@ -35,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // === 2. SCROLL ANIMATIONS — Fade-in sections ===
+  // === 2. SCROLL ANIMATIONS ===
   const revealSections = document.querySelectorAll('.reveal-section');
 
   const scrollObserver = new IntersectionObserver((entries) => {
@@ -68,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextStepBtn = document.getElementById('nextStepBtn');
 
   function updateProgress() {
-    // Update active circles
     stepNodes.forEach((node, idx) => {
       if (idx < currentStep) {
         node.classList.add('active');
@@ -77,11 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update fill line width percentage
     const fillPercent = ((currentStep - 1) / (stepNodes.length - 1)) * 100;
     progressFill.style.width = `${fillPercent}%`;
 
-    // Update text content with smooth fade animation
     const stepCard = document.getElementById('stepContent');
     stepCard.style.opacity = '0';
     
@@ -91,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
       stepCard.style.opacity = '1';
     }, 200);
 
-    // Disable/Enable buttons
     prevStepBtn.disabled = currentStep === 1;
     if (currentStep === stepsData.length) {
       nextStepBtn.textContent = 'Restart';
@@ -126,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let carouselIndex = 0;
 
-  // Create indicator dots dynamically
   slides.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('carousel-dot');
@@ -157,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
   prevBtn.addEventListener('click', () => moveCarousel(carouselIndex - 1));
   nextBtn.addEventListener('click', () => moveCarousel(carouselIndex + 1));
 
-  // Auto-play interval
   let carouselAutoPlay = setInterval(() => moveCarousel(carouselIndex + 1), 5000);
 
   const carouselBox = document.querySelector('.carousel-container');
@@ -179,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // === 6. FAQ COLLAPSE ACCORDIONS ===
+  // === 6. FAQ ACCORDION ===
   const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach(button => {
     button.addEventListener('click', () => {
@@ -193,6 +181,4 @@ document.addEventListener('DOMContentLoaded', () => {
       parentItem.classList.toggle('expanded');
     });
   });
-
-  console.log('✨ Étoffe Éclairé — Scripts Loaded & Ready for GitHub Pages ✨');
 });
