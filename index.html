@@ -11,13 +11,14 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Animated Navigation -->
   <nav class="navbar" id="navbar">
-    <div class="container">
+    <div class="container nav-container">
       <a href="#home" class="logo">Étoffe <span>Éclairé</span></a>
       <ul class="nav-links">
-        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#journey" class="nav-link">Steps</a></li>
         <li><a href="#fabrics" class="nav-link">Fabrics</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
       </ul>
@@ -30,11 +31,11 @@
       <span class="hero-subtitle">Haute Couture Knowledge</span>
       <h1>Thread of Knowledge<br><span>Style for Life</span></h1>
       <p class="subheading">Know what you wear. Wear what you love.</p>
-      <a href="#about" class="btn">Explore Collection</a>
+      <a href="#journey" class="btn">Start Learning</a>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About Section (Scroll Animated) -->
   <section id="about" class="reveal-section">
     <div class="container">
       <h2>About Us</h2>
@@ -44,32 +45,44 @@
     </div>
   </section>
 
-  <!-- Purpose & Audience Section -->
-  <section id="purpose" class="reveal-section">
+  <!-- Progress Steps Section (Interactive JS Feature) -->
+  <section id="journey" class="reveal-section">
     <div class="container">
-      <h2>Our Purpose & Audience</h2>
+      <h2>Your Wardrobe Journey</h2>
       <div class="gold-line"></div>
-      <div class="purpose-grid">
-        <div class="purpose-card">
-          <h3>Our Purpose</h3>
-          <p>We want to bridge the gap between what you see and what you actually wear. Too many people waste money on clothes that don't fit, feel uncomfortable, or fall apart too quickly simply because they don't understand fabric labels. Our goal is to empower you with the knowledge to shop smarter, care better, and build a wardrobe that truly lasts.</p>
+      <p class="note">Click Next to see how to master your fabric choices</p>
+
+      <div class="progress-wrapper">
+        <div class="progress-container">
+          <div class="progress-bar-bg"></div>
+          <div class="progress-bar-fill" id="progressFill"></div>
+          <div class="progress-step active" data-step="1">1</div>
+          <div class="progress-step" data-step="2">2</div>
+          <div class="progress-step" data-step="3">3</div>
+          <div class="progress-step" data-step="4">4</div>
         </div>
-        <div class="purpose-card">
-          <h3>Who We're For</h3>
-          <p>This content is made especially for <strong>students, online shoppers, and budget-conscious people</strong> who want to make better fashion choices without spending a fortune. Whether you're browsing online and can't touch the fabric, or you're tired of clothes shrinking in the wash — this guide is for you.</p>
+
+        <div class="step-card" id="stepContent">
+          <h3 id="stepTitle">Step 1: Read the Care Label</h3>
+          <p id="stepDescription">Check fabric percentages before buying. Look out for natural vs. synthetic fibers to know how the garment will feel and stretch.</p>
+        </div>
+
+        <div class="step-buttons">
+          <button class="step-btn" id="prevStepBtn" disabled>Previous</button>
+          <button class="step-btn primary" id="nextStepBtn">Next Step</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Fabrics Showcase & Interactive Carousel -->
+  <!-- Fabrics Showcase & Image Carousel -->
   <section id="fabrics" class="reveal-section">
     <div class="container">
       <h2>Fabrics to Know & Love</h2>
       <div class="gold-line"></div>
       <p class="note">Explore texture profiles & care guides below</p>
 
-      <!-- Elegant Image Carousel -->
+      <!-- Image Carousel Component -->
       <div class="carousel-wrapper">
         <div class="carousel-container">
           <div class="carousel-track" id="carouselTrack">
@@ -98,9 +111,9 @@
         </div>
       </div>
 
-      <!-- Fabric Information Cards -->
+      <!-- Expanding Cards Grid -->
       <div class="fabrics-grid">
-        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+        <div class="fabric-card expandable-card">
           <div class="card-header">
             <div class="emoji">☁️</div>
             <h3>Cotton</h3>
@@ -114,7 +127,7 @@
           <div class="card-icon">+</div>
         </div>
 
-        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+        <div class="fabric-card expandable-card">
           <div class="card-header">
             <div class="emoji">👑</div>
             <h3>Silk</h3>
@@ -128,7 +141,7 @@
           <div class="card-icon">+</div>
         </div>
 
-        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+        <div class="fabric-card expandable-card">
           <div class="card-header">
             <div class="emoji">⚡</div>
             <h3>Polyester</h3>
@@ -142,7 +155,7 @@
           <div class="card-icon">+</div>
         </div>
 
-        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+        <div class="fabric-card expandable-card">
           <div class="card-header">
             <div class="emoji">🌿</div>
             <h3>Linen</h3>
@@ -156,7 +169,7 @@
           <div class="card-icon">+</div>
         </div>
 
-        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+        <div class="fabric-card expandable-card">
           <div class="card-header">
             <div class="emoji">🐑</div>
             <h3>Wool</h3>
@@ -170,7 +183,7 @@
           <div class="card-icon">+</div>
         </div>
 
-        <div class="fabric-card expandable-card" onclick="toggleCard(this)">
+        <div class="fabric-card expandable-card">
           <div class="card-header">
             <div class="emoji">🌸</div>
             <h3>Rayon</h3>
@@ -187,7 +200,7 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- FAQ Section (Collapse Accordion) -->
   <section id="faq" class="reveal-section">
     <div class="container">
       <h2>Common Questions</h2>
@@ -195,7 +208,7 @@
       
       <div class="faq-container">
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
+          <button class="faq-question">
             Why do I need to know about fabrics?
             <span class="faq-toggle">+</span>
           </button>
@@ -205,7 +218,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
+          <button class="faq-question">
             How do I know fabric quality online?
             <span class="faq-toggle">+</span>
           </button>
@@ -215,7 +228,7 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
+          <button class="faq-question">
             What's the most budget-smart fabric?
             <span class="faq-toggle">+</span>
           </button>
