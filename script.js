@@ -1,89 +1,102 @@
 // ==========================================
-// ÉTOFFE ÉCLAIRÉ — JAVASCRIPT
-// 5 Interactive Features
+// ÉTOFFE ÉCLAIRÉ — FULL JAVASCRIPT
 // ==========================================
 
-// === 1. SCROLL ANIMATIONS ===
-const revealSections = document.querySelectorAll('.reveal-section');
+// 1. SCROLL REVEAL ANIMATION
+const revealElements = document.querySelectorAll('.reveal');
 
-const observer = new IntersectionObserver((entries) => {
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -30px 0px'
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1 });
+}, observerOptions);
 
-revealSections.forEach(section => {
-  observer.observe(section);
+revealElements.forEach(el => {
+  revealObserver.observe(el);
 });
 
-// === 2. EXPANDING CARDS ===
+// 2. EXPANDING FABRIC CARDS
 function toggleCard(card) {
-  const allCards = document.querySelectorAll('.expandable-card');
+  // Close all other cards
+  const allCards = document.querySelectorAll('.fabric-card');
   allCards.forEach(c => {
-    if (c !== card) c.classList.remove('expanded');
+    if (c !== card) c.classList.remove('open');
   });
-  card.classList.toggle('expanded');
+  // Toggle this card
+  card.classList.toggle('open');
 }
 
-// === 3. FAQ COLLAPSE ===
+// 3. FAQ COLLAPSE SECTIONS
 function toggleFAQ(button) {
   const faqItem = button.parentElement;
+  // Close others
   const allFAQs = document.querySelectorAll('.faq-item');
   allFAQs.forEach(item => {
-    if (item !== faqItem) item.classList.remove('expanded');
+    if (item !== faqItem) item.classList.remove('open');
   });
-  faqItem.classList.toggle('expanded');
+  // Toggle this FAQ
+  faqItem.classList.toggle('open');
 }
 
-// === 4. IMAGE CAROUSEL ===
-let slideIndex = 1;
-showSlides(slideIndex);
+// 4. IMAGE CAROUSEL
+let slidePosition = 0;
+const totalSlidesCount = 6;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function changeSlide(direction) {
+  slidePosition += direction;
+  if (slidePosition >= totalSlidesCount) slidePosition = 0;
+  if (slidePosition < 0) slidePosition = totalSlidesCount - 1;
+  updateAllSlides();
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function goToSlide(index) {
+  slidePosition = index;
+  updateAllSlides();
 }
 
-function showSlides(n) {
-  const slides = document.querySelectorAll('.carousel-slide');
+function updateAllSlides() {
+  const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
   
-  if (n > slides.length) slideIndex = 1;
-  if (n < 1) slideIndex = slides.length;
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    dots[i].classList.remove('active');
+  });
   
-  slides.forEach(slide => slide.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
-  
-  slides[slideIndex - 1].classList.add('active');
-  dots[slideIndex - 1].classList.add('active');
+  slides[slidePosition].classList.add('active');
+  dots[slidePosition].classList.add('active');
 }
 
-// Auto-slide every 5 seconds
-setInterval(() => plusSlides(1), 5000);
+// Auto-play carousel
+setInterval(() => changeSlide(1), 5000);
 
-// === 5. ACTIVE NAVIGATION HIGHLIGHT ===
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-links a');
+// 5. ACTIVE NAVIGATION HIGHLIGHT
+const pageSections = document.querySelectorAll('section');
+const navLinksList = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute('id');
+  let currentId = '';
+  
+  pageSections.forEach(section => {
+    const topPos = section.offsetTop - 120;
+    if (window.scrollY >= topPos) {
+      currentId = section.getAttribute('id');
     }
   });
-  navLinks.forEach(link => {
+  
+  navLinksList.forEach(link => {
     link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
+    if (link.getAttribute('href') === `#${currentId}`) {
       link.classList.add('active');
     }
   });
 });
 
-console.log('✨ Étoffe Éclairé — Ready!');
+console.log('✨ Étoffe Éclairé — All systems ready! ✨');
