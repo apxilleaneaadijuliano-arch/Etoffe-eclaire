@@ -55,6 +55,11 @@ h2 {
   margin: 16px auto 32px;
 }
 
+.lead-text {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
 .note {
   text-align: center;
   color: var(--text-muted);
@@ -63,7 +68,7 @@ h2 {
   margin-bottom: 32px;
 }
 
-/* Navbar */
+/* Animated Navigation */
 .navbar {
   position: fixed;
   top: 0;
@@ -83,7 +88,7 @@ h2 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
-.navbar .container {
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,14 +131,19 @@ h2 {
   color: var(--gold-accent);
 }
 
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: -4px;
   left: 0;
-  width: 100%;
-  height: 1px;
+  width: 0;
+  height: 2px;
   background-color: var(--gold-accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link.active::after, .nav-link:hover::after {
+  width: 100%;
 }
 
 /* Hero Section */
@@ -194,15 +204,15 @@ h2 {
   transform: translateY(-2px);
 }
 
-/* Sections General */
+/* Scroll Animations */
 section {
-  padding: 100px 0;
+  padding: 90px 0;
 }
 
 .reveal-section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .reveal-section.visible {
@@ -210,26 +220,115 @@ section {
   transform: translateY(0);
 }
 
-/* Purpose & Audience Grid */
-.purpose-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  margin-top: 40px;
-}
-
-.purpose-card {
+/* Progress Steps Component */
+.progress-wrapper {
+  max-width: 700px;
+  margin: 40px auto 0;
   background: var(--bg-secondary);
   padding: 40px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-soft);
 }
 
-.purpose-card h3 {
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.progress-bar-bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 3px;
+  width: 100%;
+  background-color: var(--border-light);
+  z-index: 1;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 3px;
+  width: 0%;
+  background-color: var(--gold-accent);
+  z-index: 1;
+  transition: width 0.4s ease;
+}
+
+.progress-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.progress-step.active {
+  border-color: var(--gold-accent);
+  background-color: var(--gold-accent);
+  color: #FFFFFF;
+}
+
+.step-card {
+  min-height: 110px;
+}
+
+.step-card h3 {
   font-size: 1.3rem;
-  margin-bottom: 16px;
   color: var(--gold-accent);
+  margin-bottom: 8px;
+}
+
+.step-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.step-btn {
+  padding: 10px 24px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.step-btn.primary {
+  background: var(--text-dark);
+  color: #FFFFFF;
+  border-color: var(--text-dark);
+}
+
+.step-btn:hover:not(:disabled) {
+  background: var(--gold-accent);
+  border-color: var(--gold-accent);
+  color: #FFFFFF;
+}
+
+.step-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* Carousel Component */
@@ -333,7 +432,7 @@ section {
   transform: scale(1.3);
 }
 
-/* Fabrics Cards Grid */
+/* Expanding Cards */
 .fabrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -409,7 +508,7 @@ section {
   transform: rotate(45deg);
 }
 
-/* FAQ Section */
+/* FAQ Accordion Sections */
 .faq-container {
   max-width: 700px;
   margin: 0 auto;
@@ -495,5 +594,6 @@ footer h3 span {
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.4rem; }
   .carousel-container { height: 340px; }
-  .nav-links { display: none; } /* Add your mobile menu toggle if needed */
+  .nav-links { gap: 16px; }
+  .nav-link { font-size: 0.75rem; }
 }
