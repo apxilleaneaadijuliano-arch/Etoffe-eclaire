@@ -116,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let carouselIndex = 0;
 
+  dotsContainer.innerHTML = '';
+
   slides.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('carousel-dot');
@@ -128,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateDots(index) {
     dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
+    if (dots[index]) dots[index].classList.add('active');
   }
 
   function moveCarousel(index) {
@@ -143,16 +145,27 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDots(carouselIndex);
   }
 
-  prevBtn.addEventListener('click', () => moveCarousel(carouselIndex - 1));
-  nextBtn.addEventListener('click', () => moveCarousel(carouselIndex + 1));
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      moveCarousel(carouselIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      moveCarousel(carouselIndex + 1);
+    });
+  }
 
   let carouselAutoPlay = setInterval(() => moveCarousel(carouselIndex + 1), 5000);
 
   const carouselBox = document.querySelector('.carousel-container');
-  carouselBox.addEventListener('mouseenter', () => clearInterval(carouselAutoPlay));
-  carouselBox.addEventListener('mouseleave', () => {
-    carouselAutoPlay = setInterval(() => moveCarousel(carouselIndex + 1), 5000);
-  });
+  if (carouselBox) {
+    carouselBox.addEventListener('mouseenter', () => clearInterval(carouselAutoPlay));
+    carouselBox.addEventListener('mouseleave', () => {
+      carouselAutoPlay = setInterval(() => moveCarousel(carouselIndex + 1), 5000);
+    });
+  }
 
 
   // === 5. EXPANDING CARDS ===
@@ -181,4 +194,5 @@ document.addEventListener('DOMContentLoaded', () => {
       parentItem.classList.toggle('expanded');
     });
   });
+
 });
