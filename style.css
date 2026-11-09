@@ -39,7 +39,18 @@ section {
   padding: 4rem 2rem;
 }
 
-/* Navbar */
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === NAVBAR === */
 .navbar {
   background: rgba(255,251,245,0.95);
   border-bottom: 1px solid var(--gold-pale);
@@ -48,14 +59,12 @@ section {
   top: 0;
   z-index: 100;
 }
-
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
@@ -63,37 +72,32 @@ section {
   color: var(--charcoal);
   text-decoration: none;
 }
-
 .logo span {
   color: var(--gold-rich);
   font-style: italic;
 }
-
 .nav-links {
   display: flex;
   gap: 2rem;
   list-style: none;
 }
-
 .nav-links a {
   color: var(--stone);
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
-
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--gold-rich);
 }
 
-/* Hero */
+/* === HERO === */
 .hero {
   background: linear-gradient(180deg, var(--ivory), var(--cream));
   padding: 5rem 2rem 6rem;
   text-align: center;
 }
-
 .welcome-text {
   font-size: 0.95rem;
   letter-spacing: 3px;
@@ -101,19 +105,6 @@ section {
   color: var(--stone);
   margin-bottom: 0.5rem;
 }
-
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero h1 span {
-  color: var(--gold-rich);
-  font-style: italic;
-}
-
-.tagline {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: var(--gold-rich);
-  margin-bottom:
+  margin-bottom: 0.5
