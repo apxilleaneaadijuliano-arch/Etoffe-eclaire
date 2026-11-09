@@ -1,155 +1,133 @@
-// ==================================================
-// ÉTOFFE ÉCLAIRÉ — FULL ENHANCED JAVASCRIPT
-// More Effects • All Working • GitHub Proof
-// ==================================================
+const carousel = document.querySelector(".carousel");
+const viewport = carousel.querySelector(".carousel__viewport");
+const track = carousel.querySelector(".carousel__track");
+const slides = [...carousel.querySelectorAll(".carousel__slide")];
+const dots = [...carousel.querySelectorAll(".carousel__dot")];
+const previousButton = carousel.querySelector(
+  ".carousel__button--previous"
+);
+const nextButton = carousel.querySelector(".carousel__button--next");
+const currentSlideText = document.querySelector("#current-slide");
 
-// ==========================================
-// 1. SCROLL REVEAL ANIMATION
-// Fades sections in as you scroll
-// ==========================================
-const revealSections = document.querySelectorAll('.reveal');
+let currentIndex = 0;
+let autoplayTimer;
+let touchStartX = 0;
+let touchEndX = 0;
 
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -50px 0px'
-};
+function showSlide(index) {
+  currentIndex = (index + slides.length) % slides.length;
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  slides.forEach((slide, slideIndex) => {
+    const isActive = slideIndex === currentIndex;
+
+    slide.classList.toggle("is-active", isActive);
+    slide.setAttribute("aria-hidden", String(!isActive));
+  });
+
+  dots.forEach((dot, dotIndex) => {
+    const isActive = dotIndex === currentIndex;
+
+    dot.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      dot.setAttribute("aria-current", "true");
+    } else {
+      dot.removeAttribute("aria-current");
     }
   });
-}, observerOptions);
 
-revealSections.forEach(section => {
-  revealObserver.observe(section);
+  currentSlideText.textContent = currentIndex + 1;
+}
+
+function showNextSlide() {
+  showSlide(currentIndex + 1);
+}
+
+function showPreviousSlide() {
+  showSlide(currentIndex - 1);
+}
+
+function startAutoplay() {
+  stopAutoplay();
+  autoplayTimer = window.setInterval(showNextSlide, 5000);
+}
+
+function stopAutoplay() {
+  window.clearInterval(autoplayTimer);
+}
+
+previousButton.addEventListener("click", () => {
+  showPreviousSlide();
+  startAutoplay();
 });
 
-// ==========================================
-// 2. NAVBAR SCROLL EFFECT
-// Changes style when you scroll down
-// ==========================================
-const navbar = document.getElementById('navbar');
+nextButton.addEventListener("click", () => {
+  showNextSlide();
+  startAutoplay();
+});
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    showSlide(index);
+    startAutoplay();
+  });
+});
+
+carousel.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") {
+    showPreviousSlide();
+    startAutoplay();
+  }
+
+  if (event.key === "ArrowRight") {
+    showNextSlide();
+    startAutoplay();
   }
 });
 
-// ==========================================
-// 3. EXPANDING FABRIC CARDS
-// Click to open — auto-closes others
-// ==========================================
-function toggleCard(cardElement) {
-  const allCards = document.querySelectorAll('.fabric-card');
-  
-  allCards.forEach(card => {
-    if (card !== cardElement) {
-      card.classList.remove('open');
-    }
-  });
-  
-  cardElement.classList.toggle('open');
-}
+viewport.addEventListener(
+  "touchstart",
+  (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+    stopAutoplay();
+  },
+  { passive: true }
+);
 
-// ==========================================
-// 4. FAQ COLLAPSE SECTIONS
-// Click question to show/hide answer
-// ==========================================
-function toggleFAQ(button) {
-  const faqItem = button.parentElement;
-  const allFAQs = document.querySelectorAll('.faq-item');
-  
-  allFAQs.forEach(item => {
-    if (item !== faqItem) {
-      item.classList.remove('open');
-    }
-  });
-  
-  faqItem.classList.toggle('open');
-}
+viewport.addEventListener(
+  "touchend",
+  (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+    const swipeDistance = touchEndX - touchStartX;
 
-// ==========================================
-// 5. ACTIVE NAVIGATION HIGHLIGHT
-// Shows which section you're viewing
-// ==========================================
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
+    if (Math.abs(swipeDistance) > 50) {
+      if (swipeDistance < 0) {
+        showNextSlide();
+      } else {
+        showPreviousSlide();
+      }
+    }
 
-window.addEventListener('scroll', () => {
-  let currentId = '';
-  const scrollPos = window.scrollY + 150;
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (scrollPos >= sectionTop) {
-      currentId = section.getAttribute('id');
-    }
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    const linkTarget = link.getAttribute('href').replace('#', '');
-    if (linkTarget === currentId) {
-      link.classList.add('active');
-    }
-  });
+    startAutoplay();
+  },
+  { passive: true }
+);
+
+carousel.addEventListener("mouseenter", stopAutoplay);
+carousel.addEventListener("mouseleave", startAutoplay);
+
+carousel.addEventListener("focusin", stopAutoplay);
+carousel.addEventListener("focusout", startAutoplay);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    stopAutoplay();
+  } else {
+    startAutoplay();
+  }
 });
 
-// ==========================================
-// 6. PROGRESS STEPS ANIMATION
-// Triggers when button clicked
-// ==========================================
-function startJourney() {
-  const steps = document.querySelectorAll('.step');
-  
-  steps.forEach((step, index) => {
-    setTimeout(() => {
-      step.classList.add('active');
-    }, index * 400);
-  });
-}
-
-// ==========================================
-// 7. STAGGER ANIMATION FOR FEATURE CARDS
-// Cards appear one by one
-// ==========================================
-const featureCards = document.querySelectorAll('.feature-card');
-
-const staggerObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const card = entry.target;
-      const delay = card.classList.contains('stagger-1') ? 0 :
-                    card.classList.contains('stagger-2') ? 150 :
-                    card.classList.contains('stagger-3') ? 300 : 450;
-      
-      setTimeout(() => {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, delay);
-      
-      staggerObserver.unobserve(card);
-    }
-  });
-}, { threshold: 0.2 });
-
-featureCards.forEach(card => {
-  card.style.opacity = '0';
-  card.style.transform = 'translateY(30px)';
-  card.style.transition = 'all 0.6s ease';
-  staggerObserver.observe(card);
-});
-
-// ==========================================
-// CONSOLE CONFIRMATION
-// ==========================================
-console.log('✨ ======================================');
-console.log('✨ Étoffe Éclairé — FULLY LOADED!');
-console.log('✨ 7 JavaScript Features Active');
-console.log('✨ Thread of Knowledge, Style for Life');
-console.log('✨ ======================================');
+showSlide(0);
+startAutoplay();
