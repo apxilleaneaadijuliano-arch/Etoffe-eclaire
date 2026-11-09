@@ -1,14 +1,13 @@
-// ==========================================
+// ==================================================
 // ÉTOFFE ÉCLAIRÉ — FULL JAVASCRIPT
+// 5 Interactive Features | GitHub Ready
+// ==================================================
+
 // ==========================================
-
 // 1. SCROLL REVEAL ANIMATION
+// Fades sections in as you scroll down
+// ==========================================
 const revealElements = document.querySelectorAll('.reveal');
-
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -30px 0px'
-};
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -16,87 +15,126 @@ const revealObserver = new IntersectionObserver((entries) => {
       entry.target.classList.add('visible');
     }
   });
-}, observerOptions);
-
-revealElements.forEach(el => {
-  revealObserver.observe(el);
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
 });
 
+revealElements.forEach(element => {
+  revealObserver.observe(element);
+});
+
+// ==========================================
 // 2. EXPANDING FABRIC CARDS
-function toggleCard(card) {
-  // Close all other cards
-  const allCards = document.querySelectorAll('.fabric-card');
-  allCards.forEach(c => {
-    if (c !== card) c.classList.remove('open');
-  });
-  // Toggle this card
-  card.classList.toggle('open');
-}
-
-// 3. FAQ COLLAPSE SECTIONS
-function toggleFAQ(button) {
-  const faqItem = button.parentElement;
-  // Close others
-  const allFAQs = document.querySelectorAll('.faq-item');
-  allFAQs.forEach(item => {
-    if (item !== faqItem) item.classList.remove('open');
-  });
-  // Toggle this FAQ
-  faqItem.classList.toggle('open');
-}
-
-// 4. IMAGE CAROUSEL
-let slidePosition = 0;
-const totalSlidesCount = 6;
-
-function changeSlide(direction) {
-  slidePosition += direction;
-  if (slidePosition >= totalSlidesCount) slidePosition = 0;
-  if (slidePosition < 0) slidePosition = totalSlidesCount - 1;
-  updateAllSlides();
-}
-
-function goToSlide(index) {
-  slidePosition = index;
-  updateAllSlides();
-}
-
-function updateAllSlides() {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
+// Click to open, auto-closes others
+// ==========================================
+function toggleCard(cardElement) {
+  const allFabricCards = document.querySelectorAll('.fabric-card');
   
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    dots[i].classList.remove('active');
-  });
-  
-  slides[slidePosition].classList.add('active');
-  dots[slidePosition].classList.add('active');
-}
-
-// Auto-play carousel
-setInterval(() => changeSlide(1), 5000);
-
-// 5. ACTIVE NAVIGATION HIGHLIGHT
-const pageSections = document.querySelectorAll('section');
-const navLinksList = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let currentId = '';
-  
-  pageSections.forEach(section => {
-    const topPos = section.offsetTop - 120;
-    if (window.scrollY >= topPos) {
-      currentId = section.getAttribute('id');
+  allFabricCards.forEach(eachCard => {
+    if (eachCard !== cardElement) {
+      eachCard.classList.remove('open');
     }
   });
   
-  navLinksList.forEach(link => {
+  cardElement.classList.toggle('open');
+}
+
+// ==========================================
+// 3. FAQ COLLAPSE SECTIONS
+// Click question to show/hide answer
+// ==========================================
+function toggleFAQ(questionButton) {
+  const faqItem = questionButton.parentElement;
+  const allFAQItems = document.querySelectorAll('.faq-item');
+  
+  allFAQItems.forEach(eachFAQ => {
+    if (eachFAQ !== faqItem) {
+      eachFAQ.classList.remove('open');
+    }
+  });
+  
+  faqItem.classList.toggle('open');
+}
+
+// ==========================================
+// 4. IMAGE CAROUSEL
+// Next/Prev buttons + dots + auto-play
+// ==========================================
+let activeSlideIndex = 0;
+const numberOfSlides = 6;
+
+function changeSlide(direction) {
+  activeSlideIndex += direction;
+  
+  if (activeSlideIndex >= numberOfSlides) {
+    activeSlideIndex = 0;
+  }
+  if (activeSlideIndex < 0) {
+    activeSlideIndex = numberOfSlides - 1;
+  }
+  
+  updateAllCarouselSlides();
+}
+
+function goToSpecificSlide(slideNumber) {
+  activeSlideIndex = slideNumber;
+  updateAllCarouselSlides();
+}
+
+function updateAllCarouselSlides() {
+  const allSlides = document.querySelectorAll('.slide');
+  const allDots = document.querySelectorAll('.dot');
+  
+  allSlides.forEach((slide, index) => {
+    slide.classList.remove('active');
+    allDots[index].classList.remove('active');
+  });
+  
+  allSlides[activeSlideIndex].classList.add('active');
+  allDots[activeSlideIndex].classList.add('active');
+}
+
+// Auto-advance every 5 seconds
+setInterval(() => {
+  changeSlide(1);
+}, 5000);
+
+// ==========================================
+// 5. ACTIVE NAVIGATION HIGHLIGHT
+// Shows which section you're currently viewing
+// ==========================================
+const allPageSections = document.querySelectorAll('section');
+const allNavigationLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let currentSectionID = '';
+  const scrollPosition = window.scrollY + 150;
+  
+  allPageSections.forEach(section => {
+    const sectionTopPosition = section.offsetTop;
+    const sectionID = section.getAttribute('id');
+    
+    if (scrollPosition >= sectionTopPosition) {
+      currentSectionID = sectionID;
+    }
+  });
+  
+  allNavigationLinks.forEach(link => {
     link.classList.remove('active');
-    if (link.getAttribute('href') === `#${currentId}`) {
+    const linkTarget = link.getAttribute('href').replace('#', '');
+    
+    if (linkTarget === currentSectionID) {
       link.classList.add('active');
     }
   });
 });
 
-console.log('✨ Étoffe Éclairé — All systems ready! ✨');
+// ==========================================
+// CONSOLE CONFIRMATION
+// ==========================================
+console.log('✨ ======================================');
+console.log('✨ Étoffe Éclairé — Fully Loaded!');
+console.log('✨ 5 Features Active');
+console.log('✨ Thread of Knowledge, Style for Life');
+console.log('✨ ======================================');
