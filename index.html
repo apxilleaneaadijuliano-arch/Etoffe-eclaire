@@ -5,157 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Étoffe Éclairé | Thread of Knowledge, Style for Life</title>
   
+  <!-- Elegant Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- THESE LINKS ARE PERFECT -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav class="navbar">
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#home" class="logo">Étoffe <span>Éclairé</span></a>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#carousel">Gallery</a></li>
-        <li><a href="#fabrics">Fabrics</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">Our Story</a></li>
+        <li><a href="#fabrics" class="nav-link">Fabrics</a></li>
+        <li><a href="#features" class="nav-link">Why It Matters</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero" id="home">
+    <div class="hero-glow"></div>
     <div class="container">
       <p class="welcome-text">Welcome to</p>
-      <h1>Étoffe <span>Éclairé</span></h1>
+      <h1 class="glow-text">Étoffe <span>Éclairé</span></h1>
       <p class="tagline">"Thread of Knowledge, Style for Life"</p>
       <div class="gold-divider"></div>
       <p class="subheading">Where elegance meets understanding</p>
+      <div class="hero-emoji">🧵</div>
       <div class="hero-buttons">
-        <a href="#carousel" class="btn primary">Explore Fabrics</a>
-        <a href="#about" class="btn secondary">Our Story</a>
+        <a href="#fabrics" class="btn primary">
+          <span class="btn-icon">✨</span> Explore Fabrics
+        </a>
+        <a href="#about" class="btn secondary">
+          <span class="btn-icon">👑</span> Our Story
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section id="about" class="reveal">
     <div class="container">
       <h2>Our Story</h2>
       <div class="gold-line"></div>
-      <p><strong>Étoffe Éclairé</strong> means "Enlightened Fabric" in French. We chose a French name because France is world-renowned for timeless fashion and elegance. Our initials <strong>EC</strong> stand for our brand — that's where <strong>"EC Tips & Tricks"</strong> comes from! We share simple, practical tips to help you understand fabrics, shop smarter, and build a wardrobe you truly love.</p>
-    </div>
-  </section>
-
-  <section id="purpose" class="reveal">
-    <div class="container">
-      <h2>Purpose & Audience</h2>
-      <div class="gold-line"></div>
-      <div class="purpose-grid">
-        <div class="purpose-card">
-          <h3>🎯 Our Purpose</h3>
-          <p>Too many of us waste money on clothes that shrink, feel uncomfortable, or wear out quickly — simply because we don't know what we're buying. Our purpose is to make fabric knowledge accessible, so you can shop with confidence and care with ease.</p>
-        </div>
-        <div class="purpose-card">
-          <h3>👥 Who We Serve</h3>
-          <p>Created especially for <strong>students, online shoppers, and budget-conscious individuals</strong>. Whether you're browsing Shopee or Lazada and can't touch the fabric, or tired of guessing care instructions — this knowledge is made for you.</p>
-        </div>
+      <div class="about-card">
+        <div class="about-emoji">🇫🇷</div>
+        <p><strong>Étoffe Éclairé</strong> means <em>"Enlightened Fabric"</em> in French. We chose a French name because France is celebrated worldwide for its timeless fashion, refinement, and style.</p>
+        <p class="ec-highlight"><strong>EC</strong> — our initials stand for <em>"Étoffe Éclairé"</em> → that's where <strong>"EC Tips & Tricks"</strong> comes from! Simple, practical advice to help you understand fabrics and build a wardrobe you truly love.</p>
       </div>
     </div>
   </section>
 
-  <section id="carousel" class="reveal">
+  <!-- Purpose & Audience -->
+  <section id="features" class="reveal">
     <div class="container">
-      <h2>The Fabric Gallery</h2>
+      <h2>Why This Matters</h2>
       <div class="gold-line"></div>
       
-      <div class="carousel-wrapper">
-        <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
-        <div class="carousel-track">
-          
-          <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=450&fit=crop" alt="Soft white cotton fabric">
-            <div class="slide-caption">
-              <h3>☁️ Cotton</h3>
-              <p>Soft • Breathable • Timeless Comfort</p>
-            </div>
-          </div>
-          
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1603995250039-65d4090d54b4?w=800&h=450&fit=crop" alt="Luxurious silk fabric">
-            <div class="slide-caption">
-              <h3>👑 Silk</h3>
-              <p>Luxurious • Smooth • Naturally Elegant</p>
-            </div>
-          </div>
-          
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1596462508450-9c4b460b17b3?w=800&h=450&fit=crop" alt="Natural linen texture">
-            <div class="slide-caption">
-              <h3>🌿 Linen</h3>
-              <p>Cool • Crisp • Eco-Friendly</p>
-            </div>
-          </div>
-          
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1582872329506-bbc2c22e1212?w=800&h=450&fit=crop" alt="Warm wool fabric">
-            <div class="slide-caption">
-              <h3>🐑 Wool</h3>
-              <p>Warm • Durable • Naturally Insulating</p>
-            </div>
-          </div>
-          
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=450&fit=crop" alt="Smooth woven polyester">
-            <div class="slide-caption">
-              <h3>⚡ Polyester</h3>
-              <p>Strong • Wrinkle-Resistant • Travel-Friendly</p>
-            </div>
-          </div>
-          
-          <div class="slide">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=450&fit=crop" alt="Soft flowing rayon">
-            <div class="slide-caption">
-              <h3>🌸 Rayon</h3>
-              <p>Silky • Lightweight • Beautiful Drape</p>
-            </div>
-          </div>
-          
+      <div class="features-grid">
+        <div class="feature-card stagger-1">
+          <div class="feature-emoji">💰</div>
+          <h3>Stop Wasting Money</h3>
+          <p>Clothes that shrink, tear, or feel uncomfortable cost you more in the long run. Know before you buy!</p>
         </div>
-        <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
-      </div>
-      
-      <div class="dots-container">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
-        <span class="dot" onclick="goToSlide(3)"></span>
-        <span class="dot" onclick="goToSlide(4)"></span>
-        <span class="dot" onclick="goToSlide(5)"></span>
+        
+        <div class="feature-card stagger-2">
+          <div class="feature-emoji">📱</div>
+          <h3>Online Shopping Made Easy</h3>
+          <p>Can't touch the fabric on Shopee or Lazada? No problem! Learn to read descriptions like a pro.</p>
+        </div>
+        
+        <div class="feature-card stagger-3">
+          <div class="feature-emoji">👗</div>
+          <h3>Style With Confidence</h3>
+          <p>When you understand your fabrics, every outfit feels intentional, elegant, and truly yours.</p>
+        </div>
+        
+        <div class="feature-card stagger-4">
+          <div class="feature-emoji">🌿</div>
+          <h3>Shop Sustainably</h3>
+          <p>Quality lasts longer. Buy better, buy less, and help the planet while looking amazing.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Fabrics Cards -->
   <section id="fabrics" class="reveal">
     <div class="container">
       <h2>Get to Know Your Fabrics</h2>
       <div class="gold-line"></div>
-      <p class="note">Click each card to learn more</p>
+      <p class="note">Click each card to discover more ✨</p>
       
       <div class="fabrics-grid">
         <div class="fabric-card" onclick="toggleCard(this)">
           <div class="card-front">
             <div class="emoji">☁️</div>
             <h3>Cotton</h3>
-            <span class="tag">Natural Fiber</span>
+            <span class="tag">Natural</span>
             <span class="plus">+</span>
           </div>
           <div class="card-back">
             <p><strong>Best for:</strong> Everyday wear, t-shirts, bedding</p>
-            <p><strong>Pros:</strong> Soft, breathable, gentle on skin</p>
-            <p><strong>Care:</strong> Machine washable — may shrink on high heat!</p>
+            <p><strong>Feels like:</strong> Soft, gentle, breathable against skin</p>
+            <p><strong>Care tip:</strong> Wash warm — high heat = shrinkage!</p>
           </div>
         </div>
         
@@ -163,13 +122,13 @@
           <div class="card-front">
             <div class="emoji">👑</div>
             <h3>Silk</h3>
-            <span class="tag">Luxury Natural</span>
+            <span class="tag">Luxury</span>
             <span class="plus">+</span>
           </div>
           <div class="card-back">
             <p><strong>Best for:</strong> Special occasions, blouses, scarves</p>
-            <p><strong>Pros:</strong> Smooth, shiny, feels incredible</p>
-            <p><strong>Care:</strong> Hand wash cool or dry clean — be gentle!</p>
+            <p><strong>Feels like:</strong> Smooth, cool, gently shiny</p>
+            <p><strong>Care tip:</strong> Hand wash cold — treat it like royalty!</p>
           </div>
         </div>
         
@@ -177,13 +136,13 @@
           <div class="card-front">
             <div class="emoji">⚡</div>
             <h3>Polyester</h3>
-            <span class="tag">Synthetic Fiber</span>
+            <span class="tag">Synthetic</span>
             <span class="plus">+</span>
           </div>
           <div class="card-back">
-            <p><strong>Best for:</strong> Travel, activewear, affordable fashion</p>
-            <p><strong>Pros:</strong> Durable, wrinkle-resistant, dries fast</p>
-            <p><strong>Care:</strong> Easy to wash — low maintenance beauty!</p>
+            <p><strong>Best for:</strong> Travel, activewear, budget fashion</p>
+            <p><strong>Feels like:</strong> Smooth, stretchy, wrinkle-resistant</p>
+            <p><strong>Care tip:</strong> Machine wash — dries super fast!</p>
           </div>
         </div>
         
@@ -191,13 +150,13 @@
           <div class="card-front">
             <div class="emoji">🌿</div>
             <h3>Linen</h3>
-            <span class="tag">Natural Fiber</span>
+            <span class="tag">Natural</span>
             <span class="plus">+</span>
           </div>
           <div class="card-back">
             <p><strong>Best for:</strong> Summer elegance, dresses, shirts</p>
-            <p><strong>Pros:</strong> Very breathable, ages beautifully</p>
-            <p><strong>Care:</strong> Machine wash cold — embrace the wrinkles!</p>
+            <p><strong>Feels like:</strong> Crisp, textured, keeps you cool</p>
+            <p><strong>Care tip:</strong> Wash cold — the wrinkles are part of its charm!</p>
           </div>
         </div>
         
@@ -205,13 +164,13 @@
           <div class="card-front">
             <div class="emoji">🐑</div>
             <h3>Wool</h3>
-            <span class="tag">Natural Fiber</span>
+            <span class="tag">Natural</span>
             <span class="plus">+</span>
           </div>
           <div class="card-back">
-            <p><strong>Best for:</strong> Sweaters, coats, cold weather</p>
-            <p><strong>Pros:</strong> Warm even when damp, naturally durable</p>
-            <p><strong>Care:</strong> Hand wash cold or dry clean — lay flat to dry!</p>
+            <p><strong>Best for:</strong> Sweaters, coats, chilly days</p>
+            <p><strong>Feels like:</strong> Warm, cozy, naturally springy</p>
+            <p><strong>Care tip:</strong> Hand wash cold — lay flat to dry!</p>
           </div>
         </div>
         
@@ -219,22 +178,23 @@
           <div class="card-front">
             <div class="emoji">🌸</div>
             <h3>Rayon</h3>
-            <span class="tag">Semi-Synthetic</span>
+            <span class="tag">Blend</span>
             <span class="plus">+</span>
           </div>
           <div class="card-back">
             <p><strong>Best for:</strong> Dresses, blouses, flowy styles</p>
-            <p><strong>Pros:</strong> Silky feel at an affordable price</p>
-            <p><strong>Care:</strong> Hand wash cold — can shrink easily!</p>
+            <p><strong>Feels like:</strong> Silky, lightweight, beautifully soft</p>
+            <p><strong>Care tip:</strong> Gentle wash — can shrink easily!</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="reveal">
     <div class="container">
-      <h2>Frequently Asked Questions</h2>
+      <h2>Questions You Might Have</h2>
       <div class="gold-line"></div>
       
       <div class="faq-box">
@@ -244,41 +204,75 @@
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            <p>Knowing fabrics saves you money, time, and frustration. You'll choose pieces that feel right, last longer, and stay beautiful wash after wash. No more wasting money on items that shrink, pill, or don't suit your needs!</p>
+            <p>Knowing fabrics saves you money, time, and wardrobe disappointments. You'll pick pieces that feel right, last longer, and stay beautiful. No more wasting money on items that fall apart after two washes!</p>
           </div>
         </div>
         
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFAQ(this)">
-            How do I know fabric quality online?
+            How do I shop smart online?
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            <p>Always read the description — look for "100% cotton" or "linen blend." Good sellers list materials clearly. If it doesn't say, message them! It's your right to know what you're buying.</p>
+            <p>Always check the description — look for percentages like "100% cotton" or "linen blend." If it just says "cotton feel" without details, it's likely synthetic. Message the seller — good ones will tell you!</p>
           </div>
         </div>
         
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFAQ(this)">
-            What's worth spending more on?
+            Is expensive always better?
             <span class="faq-sign">+</span>
           </button>
           <div class="faq-a">
-            <p>Quality cotton, linen, and wool cost more upfront but last years. Cheaper blends cost less now but wear out faster. Buying better means buying less often — that's true elegance and true savings!</p>
+            <p>Not always — but natural fabrics usually cost more upfront and last years longer. Cheap fast fashion costs less now but needs replacing constantly. Invest once, enjoy for years — that's true elegance.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Progress Section -->
+  <section class="progress-section reveal">
+    <div class="container">
+      <h2>Your Fabric Journey</h2>
+      <div class="gold-line"></div>
+      <p class="note">Follow these steps to become a fabric expert!</p>
+      
+      <div class="steps-container">
+        <div class="step" id="step1">
+          <div class="step-number">1</div>
+          <div class="step-text">Learn your fabrics</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step2">
+          <div class="step-number">2</div>
+          <div class="step-text">Read labels before buying</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step3">
+          <div class="step-number">3</div>
+          <div class="step-text">Care correctly = lasts longer</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step4">
+          <div class="step-number">4</div>
+          <div class="step-text">Share knowledge with friends ✨</div>
+        </div>
+      </div>
+      
+      <button class="start-btn" onclick="startJourney()">Start My Journey 🚀</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
+    <div class="footer-glow"></div>
     <h3>Étoffe <span>Éclairé</span></h3>
     <p class="tagline">"Thread of Knowledge, Style for Life"</p>
     <p class="ec-note">EC Tips & Tricks — Simple • Elegant • Practical</p>
-    <p class="copyright">© 2026 • Made with elegance</p>
+    <p class="copyright">© 2026 • Made with 💛 in the Philippines</p>
   </footer>
 
-  <!-- SCRIPT AT BOTTOM — DO NOT MOVE -->
   <script src="script.js"></script>
 </body>
 </html>
