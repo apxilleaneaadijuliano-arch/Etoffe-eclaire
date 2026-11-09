@@ -6,7 +6,6 @@
   --gold-rich: #B8922F;
   --charcoal: #2C2C2C;
   --stone: #6B6558;
-  --shadow: 0 4px 20px rgba(184, 146, 47, 0.1);
 }
 
 * {
@@ -27,8 +26,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-  font-weight: 600;
+  font-family: 'Playfair Display', serif;
 }
 
 .container {
@@ -118,43 +116,4 @@ section {
   font-size: 1.2rem;
   font-style: italic;
   color: var(--gold-rich);
-  margin-bottom: 1rem;
-}
-
-.gold-divider {
-  width: 70px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold-pale), var(--gold), var(--gold-rich));
-  margin: 0 auto 1rem;
-  border-radius: 2px;
-}
-
-.subheading {
-  color: var(--stone);
-  margin-bottom: 2rem;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn.primary {
-  background: var(--gold);
-  color: white;
-}
-
-.btn.primary:hover {
-  background: var(--gold-rich);
-  transform
+  margin-bottom:
